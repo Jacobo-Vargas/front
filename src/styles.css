@@ -1,1 +1,21 @@
+
+body{
+  background-image: url("../src/assets/images/fondo.jpg");
+  background-size: cover;
+  backdrop-filter: blur(8px); 
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Esto evita que la imagen se desplace al hacer scroll */
+  margin: 0; /* Para eliminar márgenes del body y que la imagen cubra completamente */
+}
+
+
+
 /* You can add global styles to this file, and also import other style files */
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -250px;
+  transition: margin 0.3s ease-out;
+}
+
+#wrapper #sidebar-wrapper {
+  transition: margin 0.3s ease-out;
+}
