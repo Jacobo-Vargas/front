@@ -1,0 +1,96 @@
+<!-- Formulario para crear o editar un cliente -->
+ <div class="panel">
+
+    <div  class="form-container">
+        <h3>{{isEditing ? 'Editar Cliente' : 'Nuevo Cliente'}}</h3>
+        <form  #clientForm="ngForm">
+            <!-- Nombre del Cliente -->
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="clientData.nombre" class="form-control" required>
+            </div>
+    
+            <!-- Apellido Uno -->
+            <div class="form-group">
+                <label for="apellidoUno">Apellido Uno</label>
+                <input type="text" id="apellidoUno" name="apellidoUno" [(ngModel)]="clientData.apellidoUno" class="form-control" required>
+            </div>
+    
+            <!-- Apellido Dos -->
+            <div class="form-group">
+                <label for="apellidoDos">Apellido Dos</label>
+                <input type="text" id="apellidoDos" name="apellidoDos" [(ngModel)]="clientData.apellidoDos" class="form-control">
+            </div>
+    
+            <!-- Cedula -->
+            <div class="form-group">
+                <label for="cedula">Cédula</label>
+                <input type="text" id="cedula" name="cedula" [(ngModel)]="clientData.cedula" class="form-control" required>
+            </div>
+    
+            <!-- Tipo de Cliente -->
+            <div class="form-group">
+                <label for="tipoCliente">Tipo de Cliente</label>
+                <select id="tipoCliente" name="tipoCliente" [(ngModel)]="clientData.tipoCliente" class="form-control" required>
+                    <option *ngFor="let tipo of tipoClientes" [value]="tipo.id">{{tipo.nombre}}</option>
+                </select>
+            </div>
+    
+            <!-- Sucursal (select cargado desde el endpoint) -->
+            <div class="form-group">
+                <label for="sucursal">Sucursal</label>
+                <select id="sucursal" name="sucursal" [(ngModel)]="clientData.sucursal" class="form-control" required>
+                    <option *ngFor="let sucursal of sucursales" [value]="sucursal.id">{{sucursal.nombre}}</option>
+                </select>
+            </div>
+
+            <hr>
+            <button [disabled]="!isFormValid()" (click)="onSubmit()"type="submit" class="btn btn-primary" style="margin-right: 10px;">{{isEditing ? 'Actualizar' : 'Guardar'}}</button>
+            <button [disabled]="!clientData.cedula" (click)="getByCedula(clientData.cedula)" type="submit" class="btn btn-primary">{{'Buscar'}}</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+
+
+
+<app-table class="table-info" *ngIf="dataClients && dataClients.length">
+    <thead class="table-dark">
+        <tr>
+            <th colspan="10" class="header">
+                {{'Listado de clientes' | translate}}
+            </th>
+        </tr>
+        <tr>
+            <th>{{'Id' | translate}}</th>
+            <th>{{'Tipo cliente' | translate}}</th>
+            <th>{{'Documento' | translate}}</th>
+            <th>{{'Nombre completo' | translate}}</th>
+            <th>{{'Sucursal' | translate}}</th>
+            <th>{{'Acciones' | translate}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataClients">
+            <td>{{item.id}}</td>
+            <td>{{item.tipoCliente.nombre}}</td>
+            <td>{{item.cedula}}</td>
+            <td>{{item.nombre}} {{item.apellidoUno}} {{item.apellidoDos}}</td>
+            <td>{{item.sucursal ? item.sucursal.nombre : 'N/A'}}</td>
+            <td>
+                <!-- Contenedor con display flex -->
+                <div style="display: flex; gap: 10px;">
+                    <button (click)="editClient(item)" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button (click)="deleteClient(item.id)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</app-table>

@@ -1,0 +1,27 @@
+<div [id]="modalName+'Div'">
+  <form class="was-validated" enctype="multipart/form-data">
+
+    <div class="modal fade" [id]="modalName" tabindex="-1"
+      aria-labelledby="modal" data-bs-backdrop="static"
+      data-bs-keyboard="false" aria-hidden="true">
+      <div [class]="'modal-dialog modal-dialog-scrollable ' + modalSize">
+
+        <div class="modal-content">
+          <!-- beggin-fragment-header-content -->
+          <ng-content [select]="'.' + modalName + '-header-content'">
+          </ng-content>
+          <!-- end-fragment-header-content -->
+          <!-- beggin-fragment-body-content -->
+          <ng-content [select]="'.' + modalName + '-body-content'">
+          </ng-content>
+          <!-- end-fragment-body-content -->
+
+          <!-- beggin-fragment-footer-content -->
+          <ng-content [select]="'.' + modalName + '-footer-content'">
+          </ng-content>
+          <!-- end-fragment-footer-content -->
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

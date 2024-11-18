@@ -1,0 +1,60 @@
+<div class="col" *ngIf="crudService.page"
+  title="{{ 'paginator.numItemsTitle'| translate }}"
+  style="margin-top: 5px; margin-bottom: 15px; text-align: center;">
+  <span>{{ 'paginator.numItems'| translate }}:  </span>
+  <select name="numItems" id="numItems" [(ngModel)]="maxItems"
+    (change)="changeMaxItem()">
+    <option value=10>10</option>
+    <option value=25>25</option>
+    <option value=50>50</option>
+    <option value=100>100</option>
+    <option value=500>500</option>
+    <option value=1000>1000</option>
+  </select>
+</div>
+<nav aria-label="Paginator" *ngIf="crudService.page">
+  <!-- Paginator Navigation -->
+  <ul class="pagination justify-content-center ">
+    <!-- First Page Button -->
+    <li [class]="crudService.page.first ? 'page-item active' : 'page-item'">
+      <span class="page-link" *ngIf="crudService.page.first">{{
+        'paginator.first'| translate }}</span>
+      <a class="page-link" *ngIf="!crudService.page.first"
+        (click)="loadDataByPage(0)"
+        title="{{ 'paginator.goFirst'| translate }}">{{ 'paginator.first'|
+        translate }}</a>
+    </li>
+    <!-- Previous Page Button -->
+    <li
+      [class]="!crudService.page.hasPrevius ? 'page-item active' : 'page-item'"
+      title="{{'paginator.previous'| translate}}">
+      <span class="page-link" *ngIf="!crudService.page.hasPrevius">&laquo;</span>
+      <a class="page-link" *ngIf="crudService.page.hasPrevius"
+        (click)="loadDataByPage(crudService.page.currentPage - 2)">&laquo;</a>
+    </li>
+    <!-- Page Numbers -->
+    <li class="page-item" *ngFor="let itemPage of crudService.page.pages"
+      [class]="itemPage.current ? 'page-item active' : 'page-item'">
+      <span class="page-link" *ngIf="itemPage.current">{{itemPage.num}}</span>
+      <a class="page-link" *ngIf="!itemPage.current"
+        (click)="loadDataByPage(itemPage.num-1)">{{itemPage.num}}</a>
+    </li>
+    <!-- Next Page Button -->
+    <li
+      [class]="!crudService.page.hasNext ? 'page-item active' : 'page-item'"
+      title="{{'paginator.next'| translate}}">
+      <span class="page-link" *ngIf="!crudService.page.hasNext">&raquo;</span>
+      <a class="page-link" *ngIf="crudService.page.hasNext"
+        (click)="loadDataByPage(crudService.page.currentPage)">&raquo;</a>
+    </li>
+    <!-- Last Page Button -->
+    <li [class]="crudService.page.last ? 'page-item active' : 'page-item'">
+      <span class="page-link" *ngIf="crudService.page.last">{{ 'paginator.last'|
+        translate }}</span>
+      <a class="page-link" *ngIf="!crudService.page.last"
+        (click)="loadDataByPage(crudService.page.totalPages - 1)"
+        title="{{'paginator.goLast'| translate}}">{{'paginator.last'|
+        translate}}</a>
+    </li>
+  </ul>
+</nav>

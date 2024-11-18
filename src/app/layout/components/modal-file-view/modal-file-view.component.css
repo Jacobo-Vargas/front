@@ -1,0 +1,38 @@
+/* modal-styles.css */
+
+/* modal's style */
+.modal-dialog {
+    overflow-y: clip;
+    max-width: 95%;
+    max-height: 90%;
+}
+
+/* modal body's style (PDF) */
+.modal-body-pdf {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow-y: clip;
+    margin-top: -5px;
+    max-height: 100%;
+}
+
+/* modal body's style (imagen) */
+.modal-body-image {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    background: #323639;
+    margin-top: -5px;
+    max-height: 100%;
+}
+
+/* modal body's style for the image */
+.modal-body-image img {
+    display: block;
+    margin: auto;
+    background: #323639;
+    width: 60%;
+}
+
+/* modal footer's style */

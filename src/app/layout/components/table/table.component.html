@@ -1,0 +1,14 @@
+<div class="container-fluid px-4 table-responsive">
+    <table class="table table-striped table-bordered mt-5">
+        
+        <!-- beggin-fragment-header-content -->
+        <ng-content [select]="'.' + tableName + 'Content'">
+        </ng-content>
+        <!-- end-fragment-header-content -->
+        
+        <!-- beggin-fragment-header-content -->
+        <ng-content [select]="'.' + tableName + 'Content'">
+        </ng-content>
+        <!-- end-fragment-header-content -->
+    </table>
+</div>

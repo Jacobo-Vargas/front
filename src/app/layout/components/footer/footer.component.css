@@ -1,0 +1,27 @@
+/* 
+ * Start footer style
+ */
+ .footer {
+    color: #FFFFFF;
+  }
+  
+  /* Styles for the links in the footer list */
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px; /* Espacio entre enlaces */
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+  }
+  
+  /* Styles for the copyright text */
+  .footer-copyright {
+    padding-top: 1%;
+    color: white;
+    font-size: 14px;
+  }
+  /* 
+   * End footer style
+   */

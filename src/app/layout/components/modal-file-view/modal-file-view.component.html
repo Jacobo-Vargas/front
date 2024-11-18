@@ -1,0 +1,54 @@
+<div [id]="modalName + 'Div'">
+  <!-- Begin: Modal Container -->
+  <div class="modal fade" [id]="modalName" tabindex="-1"
+      data-bs-backdrop="static" tabIndex="-1">
+      <!-- Modal Dialog -->
+      <div class="modal-dialog modal-xl v-xxl h-xxl">
+          <!-- Modal Content (conditionally displayed based on viewFileService.pathFile) -->
+          <div class="modal-content" *ngIf="viewFileService.pathFile">
+              <!-- beggin-header-content -->
+              <div class="modal-header">
+                  <!-- Modal Title -->
+                  <h1>{{'modalFileView.title'|translate}}</h1>
+                  <!-- Close Button -->
+                  <button type="button" class="btn btn-secondary text-black"
+                      (click)="viewFileService.closeFileView()"
+                      data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fa-solid fa-x"></i>
+                  </button>
+              </div>
+              <!-- end-header-content -->
+
+              <!-- Content for PDF file (conditionally displayed) -->
+              <div class="modal-body modal-body-pdf"
+                  >
+                  <div class="container-pdf">
+                      <!-- PDF Viewer Component -->
+                      <app-view-pdf [pathFileExt]=viewFileService.pathFile>
+                      </app-view-pdf>
+                  </div>
+              </div>
+
+              <!-- Content for image file (conditionally displayed) -->
+              <div class="modal-body modal-body-image"
+                  *ngIf="!viewFileService.pathFile.includes('pdf')">
+                  <div>
+                      <!-- Image Display -->
+                      <img [src]="viewFileService.pathFile" alt="img" />
+                  </div>
+              </div>
+
+              <!-- Footer Content -->
+              <!-- <div class="modal-footer"> -->
+              <!-- Close Button (at the bottom) -->
+              <!--   <button type="button" class="btn btn-secondary"
+                      (click)="viewFileService.closeFileView()"
+                      data-bs-dismiss="modal" aria-label="Close">
+                      {{'modalFileView.btnClose'|translate}}
+                  </button>
+               </div> -->
+          </div>
+      </div>
+  </div>
+  <!-- End: Modal Container -->
+</div>

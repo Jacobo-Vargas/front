@@ -1,0 +1,72 @@
+/*Start menu style*/
+/* Content of the menu */
+.btn-close {
+    font-size: 12px;
+}
+
+/* menu's title */
+.offcanvas-header-person {
+    color: transparent !important;
+    align-items: start !important;
+    padding: 3% !important;
+}
+
+.dropdown-menu {
+    color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.nav-item:hover {
+    color: #815656 !important;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-bottom: 1%;
+    padding-right: 2%;
+}
+
+.nav-link.active {
+    color: transparent;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 52%;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    border-radius: 8px;
+}
+
+.active-parent .active a {
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Estilo para el fondo del offcanvas */
+.offcanvas-start {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    backdrop-filter: blur(10px);
+    /* Aplica el desenfoque al fondo */
+    -webkit-backdrop-filter: blur(10px);
+    /* Para navegadores WebKit */
+    border-right: none;
+    /* Para quitar el borde por defecto del offcanvas */
+}
+
+/* Estilo para los botones dentro del offcanvas */
+.offcanvas-body-person .nav-link {
+    color: #fff;
+    /* Color blanco para el texto */
+    font-size: 1.1rem;
+    /* Tamaño de fuente */
+    margin-bottom: 15px;
+    /* Espacio entre botones */
+    padding-left: 50px;
+    padding-top: 5px;
+}
+
+/* Cambio de color cuando el botón de menú está activo */
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cambio de fondo al pasar el mouse */
+}

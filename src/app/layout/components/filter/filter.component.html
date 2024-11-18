@@ -1,0 +1,28 @@
+<!-- Beggin filter  -->
+<div class="container" id="filter">
+    <form class="filter-form" enctype="multipart/form-data">
+        <div class="panel">
+            <div class="panel-body panel-mg">
+
+                <!-- beggin-filter-footer-content -->
+                <div [class]="'filter-body filterShow' + '-body-content'">
+                    <div class="row rounded float-end mt-3">
+                        <div class="col ">
+                            <input type="text" [(ngModel)]="cedula" class="form-control" required>
+                            <button type="submit" class="btn btn-primary me-2 btn-filter" title="search"
+                                (click)="filterResult(cedula)">
+                                <i class="fa-solid fa-magnifying-glass"></i> {{'btnFilter.btnSearch' | translate}}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end-filter-footer-content -->
+
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<!-- End filter  -->
