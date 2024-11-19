@@ -5,12 +5,14 @@ import { CrudClientComponent } from './crud-client/crud-client.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 
 
 
 @NgModule({
   declarations: [
     CrudClientComponent,
+    CrudEmpleadoComponent,
   ],
   imports: [
     CommonModule,

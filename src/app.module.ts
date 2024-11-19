@@ -10,11 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrudClientComponent } from './app/modules/crud-client/crud-client.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CrudEmpleadoComponent } from './app/modules/crud-empleado/crud-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudClientComponent
+    CrudClientComponent,
+    CrudEmpleadoComponent
     
   ],
   imports: [

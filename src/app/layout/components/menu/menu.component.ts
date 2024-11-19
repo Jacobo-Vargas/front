@@ -17,6 +17,9 @@ export class MenuComponent {
     this.router.navigate(['/crud-client']);
   }
 
+  navigateToCrudEmpleado() {
+    this.router.navigate(['/crud-empleado']);
+  }
   
 
 }

@@ -1,0 +1,112 @@
+<!-- Formulario para crear o editar un cliente -->
+<div class="panel">
+
+    <div  class="form-container">
+        <h3>{{isEditing ? 'Editar Empleado' : 'Nuevo Empleado'}}</h3>
+        <form  #empleadoForm="ngForm">
+            <!-- Nombre del Empleado -->
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="empleadoData.nombre" class="form-control" required>
+            </div>
+    
+            <!-- Apellido Uno -->
+            <div class="form-group">
+                <label for="apellidoUno">Apellido Uno</label>
+                <input type="text" id="apellidoUno" name="apellidoUno" [(ngModel)]="empleadoData.apellidoUno" class="form-control" required>
+            </div>
+    
+            <!-- Apellido Dos -->
+            <div class="form-group">
+                <label for="apellidoDos">Apellido Dos</label>
+                <input type="text" id="apellidoDos" name="apellidoDos" [(ngModel)]="empleadoData.apellidoDos" class="form-control">
+            </div>
+    
+            <!-- Cargo -->
+            <div class="form-group">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" name="cargo" [(ngModel)]="empleadoData.cargo" class="form-control" required>
+            </div>
+    
+            <!-- Salario -->
+            <div class="form-group">
+                <label for="salario">Salario</label>
+                <input type="text" id="salario" name="salario" [(ngModel)]="empleadoData.salario" class="form-control" required 
+                pattern="^[0-9]*$"
+                title="Solo se permiten números."
+                (input)="validateNumberInput($event)">
+            </div>
+                
+            <!-- Sucursal (select cargado desde el endpoint) -->
+            <div class="form-group">
+                <label for="sucursal">Sucursal</label>
+                <select id="sucursal" name="sucursal" [(ngModel)]="empleadoData.sucursal" class="form-control" required>
+                <option *ngFor="let sucursal of sucursales" [value]="sucursal.id">{{sucursal.nombre}}</option>
+                </select>
+            </div>
+
+
+            <!-- Estado -->
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado" [(ngModel)]="empleadoData.estado" class="form-control" required>
+                    <option *ngFor="let estado of estados" [value]="estado.id">{{estado.nombre}}</option>
+                </select>
+            </div>
+    
+
+
+            <hr>
+            <button [disabled]="!isFormValid()" (click)="onSubmit()"type="submit" class="btn btn-primary" style="margin-right: 10px;">{{isEditing ? 'Actualizar' : 'Guardar'}}</button>
+            <button [disabled]="!empleadoData.salario" (click)="getBySalario(empleadoData.salario)" type="submit" class="btn btn-primary">{{'Buscar'}}</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+<app-table class="table-info" *ngIf="dataEmpleados && dataEmpleados.length">
+    <thead class="table-dark">
+        <tr>
+            <th colspan="10" class="header">
+                {{'Listado de empleados' | translate}}
+            </th>
+        </tr>
+        <tr>
+            <th>{{'Id' | translate}}</th>
+            <th>{{'Nombre completo' | translate}}</th>
+            <th>{{'Cargo' | translate}}</th>
+            <th>{{'Fecha de contratación' | translate}}</th>
+            <th>{{'Salario' | translate}}</th>
+            <th>{{'Sucursal' | translate}}</th>
+            <th>{{'Estado' | translate}}</th>
+            <th>{{'Acciones' | translate}}</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataEmpleados">
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}} {{item.apellidoUno}} {{item.apellidoDos}}</td>
+            <td>{{item.cargo}}</td>
+            <td>{{item.fechaContratacion}}</td>
+            <td>{{item.salario}}</td>
+            <td>{{item.sucursal ? item.sucursal.nombre : 'N/A'}}</td>
+            <td>{{item.estado ? item.estado.nombre : 'N/A'}}</td>
+            
+            
+            <td>
+                <!-- Contenedor con display flex -->
+                <div style="display: flex; gap: 10px;">
+                    <button (click)="editEmpleado(item)" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button (click)="deleteEmpleado(item.id)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</app-table>

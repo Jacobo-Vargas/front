@@ -122,7 +122,8 @@ export class CrudClientComponent implements OnInit {
     this.clientData = {};
     this.crudService.dataFormAux = null;
     this.isEditing = true;
-    this.crudService.getByArgument(this.endPoint + '/cedula?cedula=', cedula).then(() => {
+    this.crudService.getByArgument(this.endPoint + '/cedula?cedula=', cedula).then(async () => {
+      await this.crudService.delay(100);
     }).catch(error => {
       console.error('Error al obtener los datos:', error);
     });
