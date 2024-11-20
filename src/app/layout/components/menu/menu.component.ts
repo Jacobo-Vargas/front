@@ -20,6 +20,14 @@ export class MenuComponent {
   navigateToCrudEmpleado() {
     this.router.navigate(['/crud-empleado']);
   }
+
+  navigateToCrudCuenta() {
+    this.router.navigate(['/crud-cuenta']);
+  }
+
+  navigateToCrudSucursal() {
+    this.router.navigate(['/crud-sucursal']);
+  }
   
 
 }

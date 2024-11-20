@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertService } from 'src/app/services/alert.service';
-import { CRUDService } from 'src/app/services/crud.service';
+import { AlertService } from '../../services/alert.service';
+import { CRUDService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-crud-empleado',

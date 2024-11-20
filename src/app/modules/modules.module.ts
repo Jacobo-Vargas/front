@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
+import { CrudCuentaComponent } from './crud-cuenta/crud-cuenta.component';
+import { CrudSucursalComponent } from './crud-sucursal/crud-sucursal.component';
 
 
 
@@ -13,6 +15,8 @@ import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
   declarations: [
     CrudClientComponent,
     CrudEmpleadoComponent,
+    CrudCuentaComponent,
+    CrudSucursalComponent,
   ],
   imports: [
     CommonModule,

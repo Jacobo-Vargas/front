@@ -11,12 +11,16 @@ import { AppComponent } from './app.component';
 import { CrudClientComponent } from './app/modules/crud-client/crud-client.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CrudEmpleadoComponent } from './app/modules/crud-empleado/crud-empleado.component';
+import { CrudSucursalComponent } from './app/modules/crud-sucursal/crud-sucursal.component';
+import { CrudCuentaComponent } from './app/modules/crud-cuenta/crud-cuenta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrudClientComponent,
-    CrudEmpleadoComponent
+    CrudEmpleadoComponent,
+    CrudCuentaComponent,
+    CrudSucursalComponent
     
   ],
   imports: [
