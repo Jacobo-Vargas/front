@@ -1,1 +1,75 @@
-<p>crud-sucursal works!</p>
+<div class="panel">
+
+    <div  class="form-container">
+        <h3>{{isEditing ? 'Editar Sucursal' : 'Nueva Sucursal'}}</h3>
+        <form  #clientForm="ngForm">
+            <!-- Ciudad-->
+            <div class="form-group">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" id="ciudad" name="ciudad" [(ngModel)]="sucursalData.ciudad" class="form-control" required>
+            </div>
+            <!-- Nombre-->
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="sucursalData.nombre" class="form-control" required>
+            </div>
+            <!-- Direccion-->
+            <div class="form-group">
+                <label for="direccion">Direccion</label>
+                <input type="text" id="direccion" name="direccion" [(ngModel)]="sucursalData.direccion" class="form-control" required>
+            </div>
+            <!-- Telefono-->
+            <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input type="text" id="telefono" name="telefono" [(ngModel)]="sucursalData.telefono" class="form-control" required pattern="^[0-9]*$" 
+                       inputmode="numeric" title="Solo se permiten números">
+            </div>
+            <hr>
+            <button [disabled]="!isFormValid()" (click)="onSubmit()"type="submit" class="btn btn-primary" style="margin-right: 10px;">{{isEditing ? 'Actualizar' : 'Guardar'}}</button>
+            <button [disabled]="!sucursalData.nombre" (click)="getByNombreSucursal(sucursalData.nombre)" type="submit" class="btn btn-primary">{{'Buscar'}}</button>
+        </form>
+    </div>
+
+
+</div>
+
+<app-table class="table-info" *ngIf="dataSucursales && dataSucursales.length">
+    <thead class="table-dark">
+        <tr>
+            <th colspan="10" class="header">
+                {{'Listado de empleados' | translate}}
+            </th>
+        </tr>
+        <tr>
+            <th>{{'Id' | translate}}</th>
+            <th>{{'Nombre sucursal' | translate}}</th>
+            <th>{{'Ciudad' | translate}}</th>
+            <th>{{'Direccion' | translate}}</th>
+            <th>{{'Telefono' | translate}}</th>
+            <th>{{'Acciones' | translate}}</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataSucursales">
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.ciudad}}</td>
+            <td>{{item.direccion}}</td>
+            <td>{{item.telefono}}</td>
+            
+            
+            <td>
+                <!-- Contenedor con display flex -->
+                <div style="display: flex; gap: 10px;">
+                    <button (click)="editSucursal(item)" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button (click)="deleteSucursal(item.id)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</app-table>

@@ -70,7 +70,7 @@
               "outputHashing": "none"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cofi-frontend:build"
+            "browserTarget": "cofi-fronted:build"
           }
         },
         "test": {

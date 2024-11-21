@@ -1,0 +1,10 @@
+.panel {
+    margin: 100px auto; /* Centrado vertical con un margen superior y auto para el centrado horizontal */
+    padding: 30px; /* Espaciado interno */
+    max-width: 800px; /* Definir un tamaño máximo para que el panel no se expanda demasiado */
+    width: 80%; /* El panel ocupa el 80% del ancho de la pantalla */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+    background-color: #fff; /* Color de fondo blanco para que resalte */
+    border-radius: 8px; /* Bordes redondeados para un diseño más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+}

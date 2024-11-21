@@ -1,1 +1,78 @@
-<p>crud-cuenta works!</p>
+<!-- Formulario para crear o editar un cliente -->
+<div class="panel">
+
+    <div  class="form-container">
+        <h3>{{isEditing ? 'Editar Cuenta' : 'Nueva Cuenta'}}</h3>
+        <form  #clientForm="ngForm">
+            <!-- Numero de cuenta-->
+            <div class="form-group">
+                <label for="numeroCuenta">Numero de cuenta</label>
+                <input type="text" id="nomnumeroCuentabre" name="numeroCuenta" pattern="[0-9]*" [(ngModel)]="accountData.numeroCuenta" class="form-control" required>
+            </div>
+    
+            <!-- Clientes -->
+            <div class="form-group">
+                <label for="clientes">Cliente</label>
+                <select id="cliente" name="cliente" [(ngModel)]="accountData.clientId" class="form-control" required>
+                    <option *ngFor="let item of clientes" [value]="item.id">{{item.nombre}}</option>
+                </select>
+            </div>
+    
+            <!-- Productos-->
+            <div class="form-group">
+                <label for="producto">Tipo de Producto</label>
+                <select id="poducto" name="producto" [(ngModel)]="accountData.productoId" class="form-control" required>
+                    <option *ngFor="let item of productos" [value]="item.id">{{item.nombre}}</option>
+                </select>
+            </div>
+
+            <hr>
+            <button [disabled]="!isFormValid()" (click)="onSubmit()"type="submit" class="btn btn-primary" style="margin-right: 10px;">{{isEditing ? 'Actualizar' : 'Guardar'}}</button>
+            <button [disabled]="!accountData.numeroCuenta" (click)="getByNumeroCuenta(accountData.numeroCuenta)" type="submit" class="btn btn-primary">{{'Buscar'}}</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+<app-table class="table-info" *ngIf="dataAccounts && dataAccounts.length">
+    <thead class="table-dark">
+        <tr>
+            <th colspan="10" class="header">
+                {{'Listado de empleados' | translate}}
+            </th>
+        </tr>
+        <tr>
+            <th>{{'Id' | translate}}</th>
+            <th>{{'Numero de cuenta' | translate}}</th>
+            <th>{{'Fecha Creación' | translate}}</th>
+            <th>{{'Cliente asignado' | translate}}</th>
+            <th>{{'Nombre Producto' | translate}}</th>
+            <th>{{'Acciones' | translate}}</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataAccounts">
+            <td>{{item.id}}</td>
+            <td>{{item.numeroCuenta}}</td>
+            <td>{{item.fechaCreacion}}</td>
+            <td>{{item.cliente?.fullName}}</td>
+            <td>{{item.producto?.nombre}}</td>
+            
+            
+            <td>
+                <!-- Contenedor con display flex -->
+                <div style="display: flex; gap: 10px;">
+                    <button (click)="editAccount(item)" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button (click)="deleteCuenta(item.id)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</app-table>
