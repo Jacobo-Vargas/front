@@ -1,0 +1,80 @@
+<!-- <div class="panel reportes-container">
+    <h2>Descargar Reportes</h2>
+  
+    <div class="reportes-list">
+      <button *ngFor="let reporte of reportes" 
+              class="reporte-button"
+              (click)="descargarReporte(reporte.id)">
+        {{ reporte.nombre }}
+      </button>
+    </div>
+  </div>
+-->
+
+<div class="panel reportes-container">
+    <h2>Descargar Reportes</h2>
+  
+    <!-- Botones para cada reporte -->
+    <div class="reportes-list">
+      <!-- Botón para el reporte 1 -->
+      <button class="reporte-button" (click)="descargarReporte(1)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Simple 1: Total de clientes agrupados por tipo de cliente
+      </button>
+  
+      <!-- Botón para el reporte 2 -->
+      <button class="reporte-button" (click)="descargarReporte(2)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Simple 2: Total de empleados agrupados por sucursal
+      </button>
+  
+      <!-- Botón para el reporte 3 -->
+      <button class="reporte-button" (click)="descargarReporte(3)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Simple 3: Total de productos agrupados por tipo de producto
+      </button>
+  
+      <!-- Botón para el reporte 4 -->
+      <button class="reporte-button" (click)="descargarReporte(4)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Intermedio 1: Transacciones realizadas en el último mes
+      </button>
+  
+      <!-- Botón para el reporte 5 -->
+      <button class="reporte-button" (click)="descargarReporte(5)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Intermedio 2: Clientes y su saldo total (sumatoria de cuentas asociadas)
+      </button>
+  
+      <!-- Botón para el reporte 6 -->
+      <button class="reporte-button" (click)="descargarReporte(6)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Intermedio 3: Solicitudes agrupadas por estado de los clientes
+      </button>
+  
+      <!-- Botón para el reporte 7 -->
+      <button class="reporte-button" (click)="descargarReporte(7)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Intermedio 4: Ventanillas abiertas actualmente por sucursal
+      </button>
+  
+      <!-- Botón para el reporte 8 -->
+      <button class="reporte-button" (click)="descargarReporte(8)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Complejo 1: Histórico de transacciones por cliente y sucursal
+      </button>
+  
+      <!-- Botón para el reporte 9 -->
+      <button class="reporte-button" (click)="descargarReporte(9)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Complejo 2: Ingresos totales por sucursal en los últimos 6 meses
+      </button>
+  
+      <!-- Botón para el reporte 10 -->
+      <button class="reporte-button" (click)="descargarReporte(10)">
+        <i class="fa-solid fa-download"></i>
+        Reporte Complejo 3: Rentabilidad mensual agrupada por tipo de transacción
+      </button>
+    </div>
+  </div>
+  

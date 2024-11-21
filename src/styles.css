@@ -3,7 +3,6 @@
 body{
   background-image: url("../src/assets/images/fondo.jpg");
   background-size: cover;
-  
   background-repeat: no-repeat;
   background-attachment: fixed; /* Esto evita que la imagen se desplace al hacer scroll */
   margin: 0; /* Para eliminar márgenes del body y que la imagen cubra completamente */
@@ -586,7 +585,7 @@ table {
   border-radius: 4px;
   background-color: #e7f1f1;
   font-size: 12px !important;
-  
+
 }
 
 .xng-breadcrumb-separator {
@@ -622,14 +621,14 @@ table {
 
 
 
-/* 
+/*
  * Start footer style
  */
  .footer {
   background: #a7a7a7;
 }
 
-/* 
+/*
  * End footer style
  */
 /*Start menu style*/

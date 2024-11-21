@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 import { CrudCuentaComponent } from './crud-cuenta/crud-cuenta.component';
 import { CrudSucursalComponent } from './crud-sucursal/crud-sucursal.component';
+import { ReportsComponent } from './reports/reports.component';
 
 
 
@@ -17,6 +18,7 @@ import { CrudSucursalComponent } from './crud-sucursal/crud-sucursal.component';
     CrudEmpleadoComponent,
     CrudCuentaComponent,
     CrudSucursalComponent,
+    ReportsComponent,
   ],
   imports: [
     CommonModule,

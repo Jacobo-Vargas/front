@@ -28,6 +28,11 @@ export class MenuComponent {
   navigateToCrudSucursal() {
     this.router.navigate(['/crud-sucursal']);
   }
+
+  navigateToReports() {
+    this.router.navigate(['/reports']);
+  }
+  
   
 
 }

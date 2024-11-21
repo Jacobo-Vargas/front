@@ -535,4 +535,39 @@ public async getData(endPoint: string): Promise<any> {
 
   }
 
+
+  /**
+   * 
+   * @param reporteId 
+   */
+  public async downloadCsvReport(reporteId: number): Promise<void> {
+    const basicAuth = btoa('admin:admin123');
+  
+    const headers = {
+      'Accept-Language': <string>'es',
+      'Authorization': `Basic ${basicAuth}`
+    };
+  
+    const url = environment.urlServer + '/reportes/reporte/csv/' +reporteId;
+    
+    try {
+      // Solicita el archivo como un Blob (para la descarga)
+      const response = await this.http.get(url, { headers, responseType: 'blob' }).toPromise();
+  
+      if (response) {
+        // Crear un enlace temporal para la descarga del archivo
+        const blob = new Blob([response], { type: 'text/csv' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'reporte.csv'; // Puedes asignar un nombre diferente al archivo si lo prefieres
+        link.click();  // Simula el clic para descargar el archivo
+      } else {
+        console.error('La respuesta del servidor no contiene datos válidos para el archivo CSV.');
+      }
+    } catch (error) {
+      console.error('Error fetching or downloading CSV:', error);
+    }
+  }
+  
+
 }
